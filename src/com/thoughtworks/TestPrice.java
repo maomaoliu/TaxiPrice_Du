@@ -4,6 +4,7 @@ import org.junit.Assert;
 
 import org.junit.Test;
 
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.core.Is.is;
 
 import static org.junit.Assert.assertThat;
