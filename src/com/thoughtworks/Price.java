@@ -1,7 +1,5 @@
 package com.thoughtworks;
 
-import java.util.Scanner;
-
 /**
  * Created by IntelliJ IDEA.
  * User: Administrator
@@ -10,47 +8,40 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Price {
+    private int itsMiles = 0;
+    private double itsPrice = 0.0;
     private static final int ZERO = 0;
     private static final int THREE_MILES = 3;
     private static final double BASIC_PRICE = 6.0;
     private static final double PRICE_PER_MILE = 1.5;
 
-    /**
-     * Description:
-     * Created by 董登, 杜娟
-     * @param miles
-     * @return
-     */
-    public double total(int miles) {
-        Calculate calculate = new Calculate(miles);
-        return calculate.outputTotalPrice();
+    Price(int miles){
+        itsMiles = miles;
     }
 
-    private double outputPriceOverThreeMiles(int miles) {
-        return BASIC_PRICE + (miles - THREE_MILES) * PRICE_PER_MILE;
+    public double outputTotalPrice() {
+        return itsPrice;
     }
 
-    private double outputPriceWithinThreeMiles() {
-        return BASIC_PRICE;
+    public void countTotalPrice() {
+        if (itsMiles == ZERO) {
+            countPriceWithoutMoving();
+        } else if (itsMiles <= THREE_MILES) {
+            countPriceWithinThreeMiles();
+        } else {
+            countPriceOverThreeMiles();
+        }
     }
 
-    private double outputPriceWithoutMoving() {
-        return 0.0;
+    private void countPriceOverThreeMiles() {
+        itsPrice = BASIC_PRICE + (itsMiles - THREE_MILES) * PRICE_PER_MILE;
     }
 
-    /**
-     * Decription: Input the miles
-     * Created by 李栋
-     * @param args
-     */
-    public static void main(String args[]){
-        Price price=new Price();
-        System.out.println("输入公里数：");
-        Scanner in=new Scanner(System.in);
-        int distance=in.nextInt();
-        double result=price.total(distance);
-        System.out.print("您需要付");
-        System.out.print(result);
-        System.out.println("元");
+    private void countPriceWithinThreeMiles() {
+        itsPrice = BASIC_PRICE;
+    }
+
+    private void countPriceWithoutMoving() {
+        itsPrice = 0.0;
     }
 }

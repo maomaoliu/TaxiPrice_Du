@@ -8,21 +8,13 @@ package com.thoughtworks;
  * To change this template use File | Settings | File Templates.
  */
 public class Calculate {
-    private int itsMiles;
+    public double taxiPrice(int miles) {
+        double totalPrice;
+        Price price = new Price(miles);
 
-    Calculate(int miles) {
-        itsMiles = miles;
-    }
+        price.countTotalPrice();
+        totalPrice = price.outputTotalPrice();
 
-    Calculate() {
-        itsMiles = 0;
-    }
-
-    public double outputTotalPrice() {
-         itsMiles = countTotalPrice();
-    }
-
-    private double countTotalPrice() {
-
+        return totalPrice;
     }
 }

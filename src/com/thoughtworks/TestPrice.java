@@ -1,10 +1,11 @@
 package com.thoughtworks;
 
 import org.junit.Assert;
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertThat;
 
 /**
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertThat;
  */
 public class TestPrice {
 
-    private Price price = new Price();
+    private Calculate calculate = new Calculate();
 
     @Test
     public void testTrue() {
@@ -25,17 +26,17 @@ public class TestPrice {
 
     @Test
     public void ouputPriceWithoutMoving() {
-        assertThat(price.total(0), is(0.0));
-            }
+        assertThat(calculate.taxiPrice(0), is(0.0));
+    }
 
-    @Test
-    public void outputPriceWithinThreeMiles(){
-        assertThat(price.total(3), is(6.0));
+   @Test
+    public void outputPriceWithinThreeMiles() {
+        assertThat(calculate.taxiPrice(1), is(6.0));
     }
 
     @Test
-    public void outputPriceOverThreeMiles(){
-        assertThat(price.total(4), is(7.5));
+    public void outputPriceOverThreeMiles() {
+        assertThat(calculate.taxiPrice(4), is(7.5));
     }
 
 }
