@@ -22,14 +22,8 @@ public class Price {
      * @return
      */
     public double total(int miles) {
-        if (miles == ZERO) {
-            return outputPriceWithoutMoving();
-
-        } else if (miles <= THREE_MILES) {
-            return outputPriceWithinThreeMiles();
-        } else {
-            return outputPriceOverThreeMiles(miles);
-        }
+        Calculate calculate = new Calculate(miles);
+        return calculate.outputTotalPrice();
     }
 
     private double outputPriceOverThreeMiles(int miles) {
