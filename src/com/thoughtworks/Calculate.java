@@ -8,7 +8,7 @@ package com.thoughtworks;
  * To change this template use File | Settings | File Templates.
  */
 public class Calculate {
-    public double taxiPrice(int miles) {
+    public double taxiPrice(double miles) {
         double totalPrice;
         Price price = new Price(miles);
 

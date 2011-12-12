@@ -37,7 +37,7 @@ public class TestPrice {
 
     @Test
     public void outputPriceOverThreeMiles() {
-        assertThat(calculate.taxiPrice(4), is(7.5));
+        assertThat(calculate.taxiPrice(3.5), is(7.5));
     }
 
 }

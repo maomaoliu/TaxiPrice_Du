@@ -1,5 +1,7 @@
 package com.thoughtworks;
 
+import static java.lang.Math.ceil;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Administrator
@@ -15,8 +17,8 @@ public class Price {
     private static final double BASIC_PRICE = 6.0;
     private static final double PRICE_PER_MILE = 1.5;
 
-    Price(int miles){
-        itsMiles = miles;
+    Price(double miles){
+        itsMiles = (int) Math.ceil(miles);
     }
 
     public double outputTotalPrice() {
